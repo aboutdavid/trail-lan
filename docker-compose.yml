@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+    kiwix:
+        build: "./kiwix"
+        image: "trail/kiwix:latest"
+        restart: unless-stopped
+        container_name: "kiwix"
+        environment:
+            PORT: 8099
+        volumes:
+            - "./library:/library:Z"
+        expose:
+            - 8099
